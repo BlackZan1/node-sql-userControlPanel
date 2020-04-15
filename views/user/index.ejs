@@ -1,0 +1,66 @@
+<main>
+    <h2 class="user-title">Users data</h2>
+
+    <table class="info-user-table">
+        <thead>
+            <tr>
+                <th class="col-1">№</th>
+                <th class="col-2">Fullname</th>
+                <th class="col-3">Email</th>
+                <th class="col-4">Password</th>
+                <th class="col-5">Role</th>
+                <th class="col-6">Salary</th>
+                <th class="col-7">Profile</th>
+                <th class="col-8">Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% users.forEach((user, index) => { %>
+                <tr>
+                    <td class="col-1">
+                        <%= index + 1 %>
+                    </td>
+
+                    <td class="col-2" style="font-weight: 500;">
+                        <%= user.fullname  %>
+                    </td>
+
+                    <td class="col-3">
+                        <%= user.username %>
+                    </td>
+
+                    <td class="col-4">
+                        <%= user.password %>
+                    </td>
+
+                    <td class="col-5">
+                        <%= user.role %>
+                    </td>
+
+                    <td class="col-6">
+                        $<%= user.salary %>
+                    </td>
+
+                    <td class="col-7"> 
+                        <a href="/user/<%= user.id %>">
+                            View profile
+                        </a>
+                    </td>
+
+                    <td class="col-8">
+                        <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
+                            <button onclick="return confirm('Are you sure?')">
+                                X
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <% if(!users.length) { %>
+        <a style="margin: 20px 0 0 5%; font-size: 20px; color: dodgerblue;"  href="/create">Create new user</a>
+    <% } %>
+</main>

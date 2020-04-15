@@ -1,0 +1,49 @@
+<form action="/user/<%= user.id %>?_method=PUT" method="POST">
+    <h2 class="user-title">Edit <%= user.id %></h1>
+    <h3 class="user-title" style="margin-top: -20px; color: #a9a9a9; font-weight: 500;">Last update: <%= new Date(user.updatedAt).toLocaleString() %></h3>
+
+    <table class="info-user-table">
+        <thead>
+            <tr>
+                <th class="col-1">№</th>
+                <th class="col-2">Fullname</th>
+                <th class="col-3">Email</th>
+                <th class="col-4">Password</th>
+                <th class="col-5">Role</th>
+                <th class="col-6">Salary</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% if(user) { %>
+                <tr>
+                    <td class="col-1">
+                        1
+                    </td>
+
+                    <td class="col-2" style="font-weight: 500;">
+                        <input type="text" value="<%= user.fullname  %>" name="fullname" >
+                    </td>
+
+                    <td class="col-3">
+                        <input type="email" value="<%= user.username %>" name="username">
+                    </td>
+
+                    <td class="col-4">
+                        <input type="text" value="<%= user.password %>" name="password">
+                    </td>
+
+                    <td class="col-5">
+                        <input type="text" value="<%= user.role %>" name="role">
+                    </td>
+
+                    <td class="col-6">
+                        $<input type="number" value="<%= user.salary %>" name="salary">
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <button class="form-button" style="margin: 0 0 0 5%;" onclick="return confirm('Are you sure?')">Update</button>
+</form>

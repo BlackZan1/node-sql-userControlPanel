@@ -1,0 +1,24 @@
+.main-page {
+    width: 80%;
+    margin: 5% auto;
+    text-align: center;
+}
+
+.main-page h1 {
+    margin-bottom: 100px;
+}
+
+.main-info-count {
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+}
+
+.main-info-count span {
+    font-weight: 500;
+}
+
+.main-info a {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: dodgerblue;
+}
